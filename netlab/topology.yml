@@ -1,0 +1,94 @@
+defaults.sources.extra: [ defaults.yml ]
+defaults.bgp.ebgp_role: passive
+
+
+bgp:
+  as_list:
+    65100:
+      members: [ r02, r03, r04, r05 ]
+    65200:
+      members: [ r06, r07, r08, r09 ]
+
+
+groups:
+  edge1:
+    members:
+    - r01
+    module: [ bgp ]
+    bgp.as: 65001
+  edge2:
+    members:
+    - r10
+    module: [ bgp ]
+    bgp.as: 65002
+  ospf:
+    members:
+    - r02
+    - r03
+    - r04
+    - r05
+    module: [ ospf, bgp ]
+  isis:
+    members:
+    - r06
+    - r07
+    - r08
+    - r09
+    module: [ isis, bgp ]
+  all_bgp:
+    members: [ edge1, edge2, ospf, isis ]
+    config: [ bgp_multipath ]
+
+
+nodes:
+  r01:
+  r02:
+  r03:
+  r04:
+  r05:
+  r06:
+  r07:
+  r08:
+  r09:
+  r10:
+
+links:
+- r01:
+  r02:
+- r01:
+  r03:
+- r02:
+  r03:
+- r02:
+  r03:
+- r02:
+  r04:
+- r02:
+  r04:
+- r03:
+  r05:
+- r03:
+  r05:
+- r04:
+  r05:
+- r04:
+  r05:
+- r04:
+  r06:
+- r05:
+  r07:
+- r06:
+  r08:
+- r06:
+  r09:
+- r07:
+  r08:
+- r07:
+  r09:
+- r08:
+  r09:
+- r08:
+  r10:
+- r09:
+  r10:
+

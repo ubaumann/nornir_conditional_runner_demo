@@ -1,0 +1,34 @@
+---
+inventory:
+  plugin: SimpleInventory
+  options:
+    host_file: "inventory/hosts.yaml"
+    group_file: "inventory/groups.yaml"
+    defaults_file: "inventory/defaults.yaml"
+  
+  # Use environment variable `NORNIR_PASSWORD`.
+  # https://nornir.tech/nornir_utils/html/tutorials/load_credentials.html
+  transform_function: "load_credentials"
+
+# runner:
+#   plugin: threaded
+#   options:
+#     num_workers: 1
+
+runner:
+  plugin: ConditionalRunner
+  options:
+    num_workers: 10
+    conditional_group_key: "conditional_groups"
+    group_limits:
+      edge1_uplink: 1
+      edge2_uplink: 1
+      R04__R03_R05_R07: 1
+      R06__R05_R07: 1
+      R05__R02_R04_R06: 1
+      R07__R04_R06: 1
+      ospf: 1
+      isis: 2
+
+logging:
+  enabled: True

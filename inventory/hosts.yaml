@@ -1,0 +1,93 @@
+---
+r01:
+  hostname: 192.168.121.101
+  groups:
+    - eos
+    - edge1
+r02:
+  hostname: 192.168.121.102
+  groups:
+    - eos
+    - ospf
+  data:
+    conditional_groups:
+      - edge1_uplink
+      - R05__R02_R04_R06
+      - ospf
+r03:
+  hostname: 192.168.121.103
+  groups:
+    - eos
+    - ospf
+  data:
+    conditional_groups:
+      - edge1_uplink
+      - R04__R03_R05_R07
+      - ospf
+r04:
+  hostname: 192.168.121.104
+  groups:
+    - eos
+    - ospf
+  data:
+    conditional_groups:
+      - R04__R03_R05_R07
+      - R05__R02_R04_R06
+      - R07__R04_R06
+      - ospf
+r05:
+  hostname: 192.168.121.105
+  groups:
+    - eos
+    - ospf
+  data:
+    conditional_groups:
+      - R05__R02_R04_R06
+      - R04__R03_R05_R07
+      - R06__R05_R07
+      - ospf
+r06:
+  hostname: 192.168.121.106
+  groups:
+    - eos
+    - isis
+  data:
+    conditional_groups:
+      - R06__R05_R07
+      - R05__R02_R04_R06
+      - R07__R04_R06
+      - isis
+r07:
+  hostname: 192.168.121.107
+  groups:
+    - eos
+    - isis
+  data:
+    conditional_groups:
+      - R07__R04_R06
+      - R04__R03_R05_R07
+      - R06__R05_R07
+      - isis
+r08:
+  hostname: 192.168.121.108
+  groups:
+    - eos
+    - isis
+  data:
+    conditional_groups:
+      - edge2_uplink
+      - isis
+r09:
+  hostname: 192.168.121.109
+  groups:
+    - eos
+    - isis
+  data:
+    conditional_groups:
+      - edge2_uplink
+      - isis
+r10:
+  hostname: 192.168.121.110
+  groups:
+    - eos
+    - edge2

@@ -1,0 +1,13 @@
+---
+eos:
+  username: admin
+  platform: eos
+  data: {}
+edge1:
+  data: {}
+edge2:
+  data: {}
+ospf:
+  data: {}
+isis:
+  data: {}
