@@ -4,6 +4,11 @@ We believe every router deserves a spa day! In this example, each router gets a 
 
 With [`nornir-conditional-runner`](https://github.com/InfrastructureAsCode-ch/nornir_conditional_runner), you can ensure that R01 **Loopback0 always** maintains connectivity to **R10 Loopback0**, even while routers are taking their breaks.
 
+## Video
+
+[![Demo video](https://img.youtube.com/vi/var8vgZ4gGY/maxresdefault.jpg)](https://youtu.be/var8vgZ4gGY)
+
+
 ## Conditions
 
 ### edge1_uplink
